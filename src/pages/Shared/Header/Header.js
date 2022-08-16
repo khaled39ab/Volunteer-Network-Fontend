@@ -30,6 +30,7 @@ const Header = () => {
                             <Nav.Link as={CustomLink} to='/event'>Event</Nav.Link>
                             <Nav.Link as={CustomLink} to='/donation'>Donation</Nav.Link>
                             <Nav.Link as={CustomLink} to='/blog'>Blog</Nav.Link>
+                            <Nav.Link as={CustomLink} to='/login'>Log In</Nav.Link>
                         </Nav>
                     </Form>
                 </Navbar.Collapse>
