@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Form, Nav, Navbar } from 'react-bootstrap';
+import Event from '../../Event/Event';
 import Home from '../../Home/Home';
 import CustomLink from '../CustomLink/CustomLink';
 import logo from './../../../images/logo.png'
@@ -21,14 +22,14 @@ const Header = () => {
                     </Nav>
                     <Form className="d-flex">
                         <Nav
-                            className="me-auto my-2 my-lg-0"
+                            className="me-auto my-2 my-lg-0 fw-bold fs-5"
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link as={CustomLink} to={<Home></Home>}>Home</Nav.Link>
-                            <Nav.Link as={CustomLink} to={<Home></Home>}>Event</Nav.Link>
-                            <Nav.Link as={CustomLink} to={<Home></Home>}>Donation</Nav.Link>
-                            <Nav.Link as={CustomLink} to={<Home></Home>}>Blogs</Nav.Link>
+                            <Nav.Link as={CustomLink} to='/home'>Home</Nav.Link>
+                            <Nav.Link as={CustomLink} to='/event'>Event</Nav.Link>
+                            <Nav.Link as={CustomLink} to=''>Donation</Nav.Link>
+                            <Nav.Link as={CustomLink} to=''>Blogs</Nav.Link>
                         </Nav>
                     </Form>
                 </Navbar.Collapse>
