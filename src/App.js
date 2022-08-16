@@ -3,6 +3,7 @@ import { Routes, Route} from "react-router-dom";
 import Header from './pages/Shared/Header/Header';
 import Home from './pages/Home/Home';
 import Event from './pages/Event/Event';
+import NotFound from './pages/Shared/NotFound/NotFound';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/event' element={<Event></Event>}></Route>
+        <Route path='*' element={<NotFound></NotFound>} ></Route>
       </Routes>
     </div>
   );

@@ -5,7 +5,7 @@ import './Home.css';
 const Home = () => {
     return (
         <div>
-            <div className='text-center mt-5 heading'>
+            <div className='text-center my-5 heading'>
                 <h1>I GROW BY HELPING PEOPLE IN NEED.</h1>
                 <Form className="d-flex w-50 mx-auto">
                     <Form.Control
