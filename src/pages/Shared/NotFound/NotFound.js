@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import PageTitle from '../PageTitle/PageTitle';
 import './NotFound.css';
 
 const NotFound = () => {
 
     return (
         <section>
+            <PageTitle title='Not Found'></PageTitle>
             <div>
                 <svg width="1123" height="837" viewBox="0 0 1123 837" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="1123" height="837" fill="black" />

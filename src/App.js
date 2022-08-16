@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import Event from './pages/Event/Event';
 import NotFound from './pages/Shared/NotFound/NotFound';
 import Footer from './pages/Shared/Footer/Footer';
+import Blog from './pages/Blog/Blog';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/event' element={<Event></Event>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='*' element={<NotFound></NotFound>} ></Route>
       </Routes>
       <Footer></Footer>
