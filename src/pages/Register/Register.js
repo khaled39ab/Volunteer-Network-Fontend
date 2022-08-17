@@ -1,23 +1,56 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init'
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
 import './Register.css';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 function Register() {
     const [validated, setValidated] = useState(false);
+    const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
+            setValidated(true);
+            return
         }
+        const email = event.target.email.value;
+        const password = event.target.password.value;
 
-        setValidated(true);
+        // createUserWithEmailAndPassword(auth, email, password)
+        //     .then((userCredential) => {
+        //         // Signed in 
+        //         const user = userCredential.user;
+        //         console.log(user);
+        //     })
+        //     .catch((error) => {
+        //         const errorCode = error.code;
+        //         const errorMessage = error.message;
+        //         console.log(errorCode, errorMessage);
+        //     });
+
+        await createUserWithEmailAndPassword(email, password);
+        navigate('/')
+
     };
+    if(user){
+        console.log(user);
+    }
 
     return (
         <div className='w-50 mx-auto p-5 m-3 register'>
@@ -70,6 +103,7 @@ function Register() {
                         <Form.Label>Email address</Form.Label>
                         <Form.Control
                             required
+                            name='email'
                             type="email"
                             placeholder="Enter Your Email" />
                         <Form.Text className="text-muted">
@@ -81,11 +115,12 @@ function Register() {
                         <Form.Label>Password</Form.Label>
                         <Form.Control
                             required
+                            name='password'
                             type="password"
                             placeholder="Password" />
                     </Form.Group>
                 </Row>
-                
+
                 <Form.Group className="mb-3">
                     <Form.Check
                         required
