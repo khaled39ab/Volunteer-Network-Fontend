@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {Button, Col, Form, Row} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import PageTitle from '../Shared/PageTitle/PageTitle';
+import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
 import './Register.css';
 
 function Register() {
@@ -77,6 +78,7 @@ function Register() {
                     <Link to='/login' className='ms-3 text-decoration-underline'>Want to Log In?</Link>
                 </div>
             </Form>
+            <SocialLogIn></SocialLogIn>
         </div >
     );
 }

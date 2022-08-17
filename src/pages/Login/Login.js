@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import PageTitle from '../Shared/PageTitle/PageTitle';
+import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
 import './Login.css';
 
 const Login = () => {
@@ -27,6 +28,7 @@ const Login = () => {
                     <Link to={'/register'} className='ms-3 text-decoration-underline'>Create an account</Link>
                 </div>
             </Form>
+            <SocialLogIn></SocialLogIn>
         </div>
     );
 };

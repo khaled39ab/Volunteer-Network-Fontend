@@ -1,0 +1,19 @@
+.social-login{
+    display: flex;
+    max-width: 250px;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px;
+    background-color: aliceblue;
+}
+
+.social-login img{
+    height: 25px;
+}
+
+.social-login p{
+    margin-bottom: 0;
+    font-weight: 500;
+    color: rgb(0, 0, 0, 1);
+}
