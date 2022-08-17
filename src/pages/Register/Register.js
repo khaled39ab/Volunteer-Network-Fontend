@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import {Button, Col, Form, Row} from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
@@ -45,6 +45,17 @@ function Register() {
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                 </Row>
+                <Row className='mb-3'>
+                    <Form.Group as={Col} md="12" controlId="validationCustom03">
+                        <Form.Label>Event</Form.Label>
+                        <Form.Control
+                            required
+                            type="text"
+                            placeholder="Write Event You want to Participant"
+                        />
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                    </Form.Group>
+                </Row>
                 <Row className="mb-3">
                     <Form.Group as={Col} md="6" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
@@ -65,6 +76,7 @@ function Register() {
                             placeholder="Password" />
                     </Form.Group>
                 </Row>
+                
                 <Form.Group className="mb-3">
                     <Form.Check
                         required
