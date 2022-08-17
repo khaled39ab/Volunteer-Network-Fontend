@@ -6,7 +6,8 @@ const Blog = () => {
     return (
         <div className='text-center mt-5'>
             <PageTitle title='Blog'></PageTitle>
-            <h2>Welcome to my blog</h2>
+            <span className='py-1 px-5 bg-warning fs-2'>Welcome to my blog</span>
+            <br />
             <img src={img} alt="" />
         </div>
     );

@@ -1,9 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+import {Button, Col, Form, Row} from 'react-bootstrap';
+import { Link } from "react-router-dom";
+import PageTitle from '../Shared/PageTitle/PageTitle';
 import './Register.css';
 
 function Register() {
@@ -21,6 +20,9 @@ function Register() {
 
     return (
         <div className='w-50 mx-auto p-5 m-3 register'>
+            <PageTitle title={'Registration'}></PageTitle>
+
+            <h2 className='text-info text-center'>Registration</h2>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col} md="6" controlId="validationCustom01">
@@ -70,7 +72,10 @@ function Register() {
                         feedbackType="invalid"
                     />
                 </Form.Group>
-                <Button type="submit">Register</Button>
+                <div>
+                    <Button type="submit">Register</Button>
+                    <Link to='/login' className='ms-3 text-decoration-underline'>Want to Log In?</Link>
+                </div>
             </Form>
         </div >
     );

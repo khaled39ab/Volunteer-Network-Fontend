@@ -1,48 +1,32 @@
 import React from 'react';
+import { Form, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { faUser, faLock, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 import './Login.css';
 
 const Login = () => {
     return (
-        <div className='body'>
-            <div className="container">
-                <div className="screen">
-                    <div className="screen__content">
-                        <form className="login">
-                            <div className="login__field">
-                                <FontAwesomeIcon className='login__icon' icon={faUser} />
-                                <input type="text" className="login__input" placeholder="User name / Email" />
-                            </div>
-                            <div className="login__field">
-                                <FontAwesomeIcon className='login__icon' icon={faLock} />
-                                <input type="password" className="login__input" placeholder="Password" />
-                            </div>
-                            <button className=" login__submit">
-                                Log In Now <FontAwesomeIcon className='button__icon' icon={faChevronRight} />
+        <div className='w-50 mx-auto mt-4 login p-4'>
+            <PageTitle title={'Log in'}></PageTitle>
 
-                            </button>
-                        </form>
-                        <div className="social-login">
-                            <h3>log in via</h3>
-                            <div className="social-icons">
-                                <FontAwesomeIcon className='social-login__icon' icon={faGoogle}></FontAwesomeIcon>
-                            </div>
-                            <Link to={'/register'}
-                                className='text-decoration-underline text-light'
-                            >Create an account?</Link>
-                        </div>
-                    </div>
-                    <div className="screen__background">
-                        <span className="screen__background__shape screen__background__shape4"></span>
-                        <span className="screen__background__shape screen__background__shape3"></span>
-                        <span className="screen__background__shape screen__background__shape2"></span>
-                        <span className="screen__background__shape screen__background__shape1"></span>
-                    </div>
+            <h2 className='text-center text-info'>Log In Please</h2>
+            <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+                <div>
+                    <Button variant="primary" type="submit">
+                        Log In
+                    </Button>
+                    <Link to={'/register'} className='ms-3 text-decoration-underline'>Create an account</Link>
                 </div>
-            </div>
+            </Form>
         </div>
     );
 };
