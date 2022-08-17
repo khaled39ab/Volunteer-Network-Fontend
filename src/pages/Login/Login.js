@@ -1,7 +1,8 @@
+import React from 'react';
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faUser, faLock, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
 import './Login.css';
 
 const Login = () => {
@@ -20,8 +21,8 @@ const Login = () => {
                                 <input type="password" className="login__input" placeholder="Password" />
                             </div>
                             <button className=" login__submit">
-                                <span className="button__text">Log In Now</span>
-                                <FontAwesomeIcon className='button__icon' icon={faChevronRight} />
+                                Log In Now <FontAwesomeIcon className='button__icon' icon={faChevronRight} />
+
                             </button>
                         </form>
                         <div className="social-login">
@@ -29,6 +30,9 @@ const Login = () => {
                             <div className="social-icons">
                                 <FontAwesomeIcon className='social-login__icon' icon={faGoogle}></FontAwesomeIcon>
                             </div>
+                            <Link to={'/register'}
+                                className='text-decoration-underline text-light'
+                            >Create an account?</Link>
                         </div>
                     </div>
                     <div className="screen__background">
