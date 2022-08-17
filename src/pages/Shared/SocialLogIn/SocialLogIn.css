@@ -1,3 +1,9 @@
+.login-container{
+    display: grid;
+    grid-template-columns: repeat(1 1fr);
+    justify-content: center;
+}
+
 .social-login{
     display: flex;
     max-width: 250px;
@@ -16,4 +22,39 @@
     margin-bottom: 0;
     font-weight: 500;
     color: rgb(0, 0, 0, 1);
+}
+/* 
+--------------------------------------
+-----------   Responsive  ------------
+--------------------------------------
+*/
+
+@media only screen and (max-width: 576px) {
+    .social-login{
+        display: flex;
+        min-width: 200px;
+        margin-top: 15px;
+        align-items: center;
+        padding: 4px;
+    }
+
+    .social-login p{
+        font-weight: 300;
+        color: rgb(0, 0, 0, 1);
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .social-login{
+        display: flex;
+        min-width: 200px;
+        margin-top: 15px;
+        align-items: center;
+        padding: 4px;
+    }
+
+    .social-login p{
+        font-weight: 400;
+        color: rgb(0, 0, 0, 1);
+    }
 }

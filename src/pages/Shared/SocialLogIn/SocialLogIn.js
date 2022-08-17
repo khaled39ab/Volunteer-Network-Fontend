@@ -5,7 +5,7 @@ import './SocialLogIn.css'
 
 const SocialLogIn = () => {
     return (
-        <div className='mx-auto w-50'>
+        <div className='login-container'>
             <div className='social-login border rounded-pill'>
                 <img src={googleIcon} alt="" />
                 <p>Continue with Google</p>

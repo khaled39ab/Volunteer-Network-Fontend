@@ -46,12 +46,21 @@ function Register() {
                     </Form.Group>
                 </Row>
                 <Row className='mb-3'>
-                    <Form.Group as={Col} md="12" controlId="validationCustom03">
+                    <Form.Group as={Col} md="6" controlId="validationCustom03">
                         <Form.Label>Event</Form.Label>
                         <Form.Control
                             required
                             type="text"
-                            placeholder="Write Event You want to Participant"
+                            placeholder="Write Event You Want to Participant"
+                        />
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group as={Col} md="6" controlId="validationCustom04">
+                        <Form.Label>Occupation</Form.Label>
+                        <Form.Control
+                            required
+                            type="text"
+                            placeholder="Write Your Occupation"
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -62,7 +71,7 @@ function Register() {
                         <Form.Control
                             required
                             type="email"
-                            placeholder="Enter email" />
+                            placeholder="Enter Your Email" />
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                         </Form.Text>
