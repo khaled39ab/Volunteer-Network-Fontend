@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init'
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
@@ -18,7 +18,13 @@ function Register() {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [
+        updateProfile,
+        updating,
+        error2
+    ] = useUpdateProfile(auth);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,6 +37,9 @@ function Register() {
         }
         const email = event.target.email.value;
         const password = event.target.password.value;
+        const firstName = event.target.firstName.value;
+        const lastName = event.target.lastName.value;
+        const name = firstName + ' ' + lastName;
 
         // createUserWithEmailAndPassword(auth, email, password)
         //     .then((userCredential) => {
@@ -45,10 +54,11 @@ function Register() {
         //     });
 
         await createUserWithEmailAndPassword(email, password);
-        navigate('/')
+        await updateProfile({ displayName: name })
+        // navigate('/')
 
     };
-    if(user){
+    if (user) {
         console.log(user);
     }
 
@@ -63,6 +73,7 @@ function Register() {
                         <Form.Label>First name</Form.Label>
                         <Form.Control
                             required
+                            name='firstName'
                             type="text"
                             placeholder="First name"
                         />
@@ -72,6 +83,7 @@ function Register() {
                         <Form.Label>Last name</Form.Label>
                         <Form.Control
                             required
+                            name='lastName'
                             type="text"
                             placeholder="Last name"
                         />
