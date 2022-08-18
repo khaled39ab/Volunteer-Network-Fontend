@@ -2,12 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init'
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
 import './Register.css';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 function Register() {
     const [validated, setValidated] = useState(false);
@@ -18,13 +17,19 @@ function Register() {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [
         updateProfile,
         updating,
         error2
     ] = useUpdateProfile(auth);
+
+    const [
+        sendEmailVerification,
+        sending,
+        error3
+    ] = useSendEmailVerification(auth);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -41,21 +46,9 @@ function Register() {
         const lastName = event.target.lastName.value;
         const name = firstName + ' ' + lastName;
 
-        // createUserWithEmailAndPassword(auth, email, password)
-        //     .then((userCredential) => {
-        //         // Signed in 
-        //         const user = userCredential.user;
-        //         console.log(user);
-        //     })
-        //     .catch((error) => {
-        //         const errorCode = error.code;
-        //         const errorMessage = error.message;
-        //         console.log(errorCode, errorMessage);
-        //     });
-
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name })
-        // navigate('/')
+        navigate('/')
 
     };
     if (user) {
