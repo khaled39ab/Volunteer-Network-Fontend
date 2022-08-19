@@ -8,6 +8,7 @@ import Footer from './pages/Shared/Footer/Footer';
 import Blog from './pages/Blog/Blog';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>} ></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

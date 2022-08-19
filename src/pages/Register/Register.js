@@ -22,14 +22,16 @@ function Register() {
     const [
         updateProfile,
         updating,
-        error2
+        updateError
     ] = useUpdateProfile(auth);
 
     const [
         sendEmailVerification,
         sending,
-        error3
+        verifyError
     ] = useSendEmailVerification(auth);
+
+    let errorMessage;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -53,6 +55,10 @@ function Register() {
     };
     if (user) {
         console.log(user);
+    }
+
+    if (error) {
+        errorMessage = <p className='text-danger'>Error: {error?.message}</p>
     }
 
     return (
@@ -139,6 +145,9 @@ function Register() {
                     <Link to='/login' className='ms-3 text-decoration-underline'>Want to Log In?</Link>
                 </div>
             </Form>
+            {
+                errorMessage
+            }
             <SocialLogIn></SocialLogIn>
         </div >
     );

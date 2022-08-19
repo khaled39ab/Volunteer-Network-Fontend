@@ -1,7 +1,5 @@
 import React from 'react';
 import { Container, Form, Nav, Navbar } from 'react-bootstrap';
-import Event from '../../Event/Event';
-import Home from '../../Home/Home';
 import CustomLink from '../CustomLink/CustomLink';
 import logo from './../../../images/logo.png'
 
