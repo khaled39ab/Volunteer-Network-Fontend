@@ -2,13 +2,14 @@ import { async } from '@firebase/util';
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from '../../firebase.init';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
 import './Login.css';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [
         signInWithEmailAndPassword,
         user,
@@ -21,7 +22,8 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        await signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password);
+        navigate('/')
       }
 
     return (

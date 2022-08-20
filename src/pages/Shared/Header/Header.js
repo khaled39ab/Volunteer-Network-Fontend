@@ -1,14 +1,23 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Form, Nav, Navbar } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
 import logo from './../../../images/logo.png'
 
 const Header = () => {
+    const [user, loading, error] = useAuthState(auth);
+
+    const handleSignOut = () => {
+        signOut(auth);
+    }
+
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
                 <Navbar.Brand href="/" className='ps-5'>
-                    <img style={{height:"35px"}} src={logo} alt="" />
+                    <img style={{ height: "35px" }} src={logo} alt="" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
@@ -28,7 +37,12 @@ const Header = () => {
                             <Nav.Link as={CustomLink} to='/event'>Event</Nav.Link>
                             <Nav.Link as={CustomLink} to='/donation'>Donation</Nav.Link>
                             <Nav.Link as={CustomLink} to='/blog'>Blog</Nav.Link>
-                            <Nav.Link as={CustomLink} to='/login'>Log In</Nav.Link>
+
+                            {
+                                user ?
+                                    <Nav.Link className='text-decoration-underline' onClick={handleSignOut}>Sign Out</Nav.Link>:
+                                    <Nav.Link as={CustomLink} to='/login'>Log In</Nav.Link>
+                            }
                         </Nav>
                     </Form>
                 </Navbar.Collapse>
