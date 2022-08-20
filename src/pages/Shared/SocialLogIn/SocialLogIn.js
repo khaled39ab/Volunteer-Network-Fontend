@@ -4,8 +4,14 @@ import facebookIcon from './../../../images/Facebook.png'
 import './SocialLogIn.css'
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogIn = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+    let errorMessage;
     const [
         signInWithGoogle,
         googleUser,
@@ -19,6 +25,14 @@ const SocialLogIn = () => {
         facebookError
     ] = useSignInWithFacebook(auth);
 
+    if(googleError || facebookError){
+        errorMessage = <p className='text-danger'>Error: {googleError?.message} {facebookError?.message}</p>
+    }
+
+    if (googleUser || facebookUser) {
+        navigate(from, { replace: true });
+    }
+
     return (
         <div className='login-container'>
             <div onClick={() => { signInWithGoogle() }} className='social-login border rounded-pill'>
@@ -29,6 +43,9 @@ const SocialLogIn = () => {
                 <img src={facebookIcon} alt="" />
                 <p>Continue with Facebook</p>
             </div>
+            {
+                errorMessage
+            }
         </div>
     );
 };
