@@ -2,7 +2,7 @@ import { async } from '@firebase/util';
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from '../../firebase.init';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
@@ -10,21 +10,24 @@ import './Login.css';
 
 const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
 
-      const handleSubmit = async e =>{
+    const handleSubmit = async e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
 
         await signInWithEmailAndPassword(email, password);
-        navigate('/')
-      }
+        navigate(from, { replace: true });
+    }
 
     return (
         <div className='w-50 mx-auto mt-4 login p-4'>
