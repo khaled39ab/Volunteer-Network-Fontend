@@ -20,6 +20,12 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    let errorMessage;
+
+    if (error) {
+        errorMessage = <p className='text-danger'>Error: {error?.message}</p>
+    }
+
     const handleSubmit = async e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -51,6 +57,9 @@ const Login = () => {
                     <Link to={'/register'} className='ms-3 text-decoration-underline'>Create an account</Link>
                 </div>
             </Form>
+            {
+                errorMessage
+            }
             <SocialLogIn></SocialLogIn>
         </div>
     );
