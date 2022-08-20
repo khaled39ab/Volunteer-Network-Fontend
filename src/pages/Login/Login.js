@@ -1,25 +1,43 @@
+import { async } from '@firebase/util';
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from "react-router-dom";
+import auth from '../../firebase.init';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
 import './Login.css';
 
 const Login = () => {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+
+      const handleSubmit = async e =>{
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        await signInWithEmailAndPassword(email, password)
+      }
+
     return (
         <div className='w-50 mx-auto mt-4 login p-4'>
             <PageTitle title={'Log in'}></PageTitle>
 
             <h2 className='text-center text-info'>Log In Please</h2>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control name='email' type="email" placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control name='password' type="password" placeholder="Password" />
                 </Form.Group>
                 <div>
                     <Button variant="primary" type="submit">
