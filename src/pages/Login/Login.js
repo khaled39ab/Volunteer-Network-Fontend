@@ -34,6 +34,10 @@ const Login = () => {
         navigate(from, { replace: true });
     }
 
+    if(user){
+        console.log(user);
+    }
+
     return (
         <div className='w-50 mx-auto mt-4 login p-4'>
             <PageTitle title={'Log in'}></PageTitle>

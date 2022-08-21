@@ -1,9 +1,16 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import './Home.css';
 
 const Home = () => {
+    const [user, loading, error] = useAuthState(auth);
+
+    if (user){
+        console.log(user);
+    }
     return (
         <div>
             <PageTitle title='Home'></PageTitle>
