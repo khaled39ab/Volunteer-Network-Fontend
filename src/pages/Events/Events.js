@@ -13,7 +13,8 @@ const Events = () => {
     return (
         <div>
             <PageTitle title='Events'></PageTitle>
-            <div className='container events'>
+            <div className='events'>
+                
                 {
                     events.map(event => <Event
                         key={event._id}
