@@ -2,7 +2,6 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Header from './pages/Shared/Header/Header';
 import Home from './pages/Home/Home';
-import Event from './pages/Event/Event';
 import NotFound from './pages/Shared/NotFound/NotFound';
 import Footer from './pages/Shared/Footer/Footer';
 import Blog from './pages/Blog/Blog';

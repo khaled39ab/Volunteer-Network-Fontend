@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './AddEvent.css'
 
 const AddEvent = () => {
@@ -29,9 +30,9 @@ const AddEvent = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Success:', data);
+                // console.log(data);
             })
-        
+            toast('Successfully added your event');
         navigate('/events');
     };
 
