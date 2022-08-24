@@ -34,7 +34,7 @@ const Header = () => {
                             navbarScroll
                         >
                             <Nav.Link as={CustomLink} to='/'>Home</Nav.Link>
-                            <Nav.Link as={CustomLink} to='/event'>Event</Nav.Link>
+                            <Nav.Link as={CustomLink} to='/events'>Events</Nav.Link>
                             <Nav.Link as={CustomLink} to='/donation'>Donation</Nav.Link>
                             <Nav.Link as={CustomLink} to='/blog'>Blog</Nav.Link>
 

@@ -1,12 +1,22 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 
-const Event = () => {
+const Event = ({ event }) => {
+    const { name, img } = event;
     return (
-        <div>
-            <PageTitle title='Event'></PageTitle>
-            <h2>This is event</h2>
-        </div>
+        <>
+            
+
+            <div className='event'>
+                <Card>
+                    <Card.Img variant="top" src={img} />
+                    <Card.Body>
+                        <Card.Title>{name}</Card.Title>
+                    </Card.Body>
+                </Card>
+            </div>
+        </>
     );
 };
 

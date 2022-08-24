@@ -99,7 +99,7 @@ const NotFound = () => {
                 </svg>
             </div>
             <div className="text">
-                <h1>404 Error</h1>
+                <h1 className='error-404'>404 Error</h1>
                 <h2>Couldn't launch (-_-)</h2>
                 <h3>Page Not Found - lets take you <span className='text-decoration-underline'><Link to={'/'}>Back</Link></span> </h3>
             </div>

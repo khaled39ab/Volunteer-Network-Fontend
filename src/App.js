@@ -9,6 +9,7 @@ import Blog from './pages/Blog/Blog';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import { ToastContainer } from 'react-toastify';
+import Events from './pages/Events/Events';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/event' element={<Event></Event>}></Route>
+        <Route path='/events' element={<Events></Events>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>

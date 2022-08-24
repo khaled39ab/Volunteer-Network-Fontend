@@ -8,9 +8,6 @@ import './Home.css';
 const Home = () => {
     const [user, loading, error] = useAuthState(auth);
 
-    if (user){
-        console.log(user);
-    }
     return (
         <div>
             <PageTitle title='Home'></PageTitle>
