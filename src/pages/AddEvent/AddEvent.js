@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './AddEvent.css'
 
 const AddEvent = () => {
     const [validated, setValidated] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
+        event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
-            event.preventDefault();
             event.stopPropagation();
             setValidated(true);
             return
@@ -29,6 +31,8 @@ const AddEvent = () => {
             .then(data => {
                 console.log('Success:', data);
             })
+        
+        navigate('/events');
     };
 
     return (
