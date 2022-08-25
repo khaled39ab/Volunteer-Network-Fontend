@@ -7,6 +7,7 @@ import auth from './../../firebase.init'
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import SocialLogIn from '../Shared/SocialLogIn/SocialLogIn';
 import './Register.css';
+import { toast } from 'react-toastify';
 
 function Register() {
     const [validated, setValidated] = useState(false);
@@ -52,6 +53,7 @@ function Register() {
 
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name })
+        toast('Sent a email to verify')
         navigate(from, { replace: true });
 
     };

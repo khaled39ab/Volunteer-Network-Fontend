@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import Events from './pages/Events/Events';
 import RequireAuth from './pages/Shared/RequireAuth/RequireAuth';
 import AddEvent from './pages/AddEvent/AddEvent';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
