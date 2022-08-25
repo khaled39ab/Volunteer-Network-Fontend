@@ -12,6 +12,7 @@ import Events from './pages/Events/Events';
 import RequireAuth from './pages/Shared/RequireAuth/RequireAuth';
 import AddEvent from './pages/AddEvent/AddEvent';
 import 'react-toastify/dist/ReactToastify.css';
+import User from './pages/User/User';
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
         <Route path='/add-event' element={
           <RequireAuth>
             <AddEvent></AddEvent>
+          </RequireAuth>
+        }></Route>
+        <Route path='/user' element={
+          <RequireAuth>
+            <User></User>
           </RequireAuth>
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>

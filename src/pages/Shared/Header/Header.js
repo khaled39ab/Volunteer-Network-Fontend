@@ -9,6 +9,8 @@ import logo from './../../../images/logo.png'
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
 
+    const name = user?.displayName;
+
     const handleSignOut = () => {
         signOut(auth);
     }
@@ -42,6 +44,7 @@ const Header = () => {
                                 user ?
                                     <>
                                         <Nav.Link as={CustomLink} to='/add-event'>Add Event</Nav.Link>
+                                        <Nav.Link as={CustomLink} to='/user'>{name}</Nav.Link>
                                         <Nav.Link className='text-decoration-underline' onClick={handleSignOut}>Sign Out</Nav.Link>
                                     </> :
                                     <Nav.Link as={CustomLink} to='/login'>Log In</Nav.Link>
