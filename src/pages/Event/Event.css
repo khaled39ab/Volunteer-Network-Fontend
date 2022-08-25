@@ -1,6 +1,24 @@
-.card-title{
+.card-title {
     background-color: rgba(63, 144, 252);
     text-align: center;
     margin-bottom: 0;
     color: white;
+    cursor: pointer;
+}
+
+.card-title span{
+    display: none;
+}
+
+.card-title:hover span{
+    border: #c0c0c0 1px dotted;
+    padding: 5px;
+    display: block;
+    z-index: 100;
+    background: #5c5b5b no-repeat 100% 5%;
+    left: 50px;
+    margin: 10px;
+    position: absolute;
+    top: 30px;
+    text-decoration: none
 }

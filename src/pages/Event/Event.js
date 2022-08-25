@@ -10,7 +10,7 @@ const Event = ({ event }) => {
                 <Card>
                     <Card.Img variant="top" src={img} />
                     <Card.Body className='card-title'>
-                        <Card.Title>{name}</Card.Title>
+                        <Card.Title>{name} <span>Click to Join</span></Card.Title>
                     </Card.Body>
                 </Card>
             </div>
