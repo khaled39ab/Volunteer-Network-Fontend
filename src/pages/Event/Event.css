@@ -6,19 +6,11 @@
     cursor: pointer;
 }
 
-.card-title span{
-    display: none;
-}
-
-.card-title:hover span{
-    border: #c0c0c0 1px dotted;
-    padding: 5px;
-    display: block;
-    z-index: 100;
-    background: #5c5b5b no-repeat 100% 5%;
-    left: 50px;
-    margin: 10px;
+.card-title:hover::after{
+    content: 'Click to JOIN';
     position: absolute;
-    top: 30px;
-    text-decoration: none
+    padding: 5px;
+    border: 1px solid gray;
+    background: rgb(56, 55, 55);
+    font-size: 14px;
 }
