@@ -6,21 +6,14 @@ const Event = ({ event }) => {
     const { _id, name, img } = event;
 
     const handleAddEvent = (id) => {
-        let joinEvent = {};
+        let joinEvent = [];
         const savedEvent = localStorage.getItem('event')
         if (savedEvent) {
             joinEvent = JSON.parse(savedEvent)
         }
-        // const event = joinEvent[id];
-        // if (event) {
-        //     const newEvent = event + 1;
-        //     joinEvent[id] = newEvent;
-        // }
-        // else {
-        //     joinEvent[id] = 1;
-        // }
-        localStorage.setItem('event', JSON.stringify(joinEvent));
+        joinEvent.push(id)
 
+        localStorage.setItem('event', JSON.stringify(joinEvent));
     }
 
     return (
