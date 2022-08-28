@@ -11,7 +11,7 @@ const Event = ({ event }) => {
         if (savedEvent) {
             joinEvent = JSON.parse(savedEvent)
         }
-        joinEvent.push(id)
+        // joinEvent.push(id)
 
         localStorage.setItem('event', JSON.stringify(joinEvent));
     }
