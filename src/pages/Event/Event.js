@@ -6,18 +6,19 @@ const Event = ({ event }) => {
     const { _id, name, img } = event;
 
     const handleAddEvent = (id) => {
-        
-        fetch('http://localhost:5000/joinEvent', {
+        const data = { id };
+        fetch('https://hidden-hollows-07367.herokuapp.com/joinEvent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(id)
+            body: JSON.stringify(data)
         })
             .then(res => res.json())
             .then(data => {
                 console.log("Success:", data);
             })
+
     }
 
     return (
