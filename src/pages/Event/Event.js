@@ -6,17 +6,33 @@ const Event = ({ event }) => {
     const { _id, name, img } = event;
 
     const handleAddEvent = (id) => {
-        const data = { id };
+        let joinEvent = {};
+        const storedEvent = localStorage.getItem('event')
+        if (storedEvent) {
+            joinEvent = JSON.parse(storedEvent)
+        }
+        const savedEvent = [];
+        const keys = Object.keys(savedEvent)
+
+
         fetch('https://hidden-hollows-07367.herokuapp.com/joinEvent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(keys)
         })
             .then(res => res.json())
             .then(data => {
-                console.log("Success:", data);
+                console.log(data);
+                for (const id in storedEvent) {
+                    const addedEvent = data.find(event => event._id === id);
+                    if (addedEvent) {
+                        const quantity = storedEvent[id];
+                        addedEvent.quantity = quantity;
+                        savedEvent.push(addedEvent)
+                    }
+                }
             })
 
     }
