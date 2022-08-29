@@ -6,14 +6,18 @@ const Event = ({ event }) => {
     const { _id, name, img } = event;
 
     const handleAddEvent = (id) => {
-        let joinEvent = [];
-        const savedEvent = localStorage.getItem('event')
-        if (savedEvent) {
-            joinEvent = JSON.parse(savedEvent)
-        }
-        // joinEvent.push(id)
-
-        localStorage.setItem('event', JSON.stringify(joinEvent));
+        
+        fetch('http://localhost:5000/joinEvent', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(id)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Success:", data);
+            })
     }
 
     return (

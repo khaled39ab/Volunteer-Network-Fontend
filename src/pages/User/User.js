@@ -1,9 +1,12 @@
 import React from 'react';
+import useEvents from '../../hooks/useEvents';
 
 const User = () => {
+    const [ events ] = useEvents();
+
     return (
         <div>
-            <h1>Here is user</h1>
+            <h1>Your Event</h1>
         </div>
     );
 };
