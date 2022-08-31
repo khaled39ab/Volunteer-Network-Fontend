@@ -15,8 +15,6 @@ const Event = ({ event }) => {
         
         localStorage.setItem('event', JSON.stringify(joinEvent))
 
-        // const savedEvent = [];
-        // const keys = Object.keys(joinEvent)
         const keys = {id}
 
 
@@ -30,14 +28,6 @@ const Event = ({ event }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // for (const id in storedEvent) {
-                //     const addedEvent = data.find(event => event._id === id);
-                //     if (addedEvent) {
-                //         const quantity = storedEvent[id];
-                //         addedEvent.quantity = quantity;
-                //         savedEvent.push(addedEvent)
-                //     }
-                // }
             })
 
     }
